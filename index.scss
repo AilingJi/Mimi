@@ -1,0 +1,100 @@
+@use "sass:math";
+$container-width: 200px;
+$container-height: 200px;
+$dot-width: 10px;
+$n: 36;
+$animation-duration: 2s;
+
+body {
+    background-color: lightblue;
+}
+.container {
+    width: $container-width;
+    height: $container-height;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid wheat;
+    position: relative;
+    .dot {
+        width: $dot-width;
+        height: $dot-width;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: calc($dot-width / -2);
+        margin-top: calc($dot-width / -2);
+        // background-color: red;
+        // border-radius: 50%;
+        
+        transform-origin: center math.div($container-height + $dot-width, 2);
+
+        perspective: 70px;
+        transform-style: preserve-3d;
+
+        @for $i from 1 through $n {
+            &:nth-child(#{$i}) {
+                transform: rotate(calc(($i - 1) * 360deg / $n));
+                &::before, &::after {
+                    animation-delay: calc($animation-duration / $n * $i * -5);
+                }
+            }
+        }
+        &::before, &::after {
+            content: '';
+            width: $dot-width;
+            height: $dot-width;
+            position: absolute;
+            border-radius: 50%;
+        }
+        &::before {
+            background-color: black;
+            top: -100%;
+            animation: rotate-black $animation-duration infinite;
+
+            @keyframes rotate-black {
+                0% {
+                    animation-timing-function: ease-in;
+                }
+                25% {
+                    transform: translate3D(0, 100%, $dot-width);
+                    animation-timing-function: ease-out;
+                }
+                50% {
+                    transform: translate3D(0, 200%, 0);
+                    animation-timing-function: ease-in;
+                }
+                75% {
+                    transform: translate3D(0, 100%, $dot-width);
+                    animation-timing-function: ease-out;
+                }
+            }
+        }
+        &::after {
+            background-color: white;
+            top: 100%;
+            animation: rotate-white $animation-duration infinite;
+
+            @keyframes rotate-white {
+                0% {
+                    animation-timing-function: ease-in;
+                }
+                25% {
+                    transform: translate3D(0, -100%, -$dot-width);
+                    animation-timing-function: ease-out;
+                }
+                50% {
+                    transform: translate3D(0, -200%, 0);
+                    animation-timing-function: ease-in;
+                }
+                75% {
+                    transform: translate3D(0, -100%, $dot-width);
+                    animation-timing-function: ease-out;
+                }
+            }
+        }
+
+ 
+
+
+    }
+}
