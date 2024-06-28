@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container .platform {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  background-color: palevioletred;
+}
+.container .platform .ball {
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: palevioletred;
+  animation: babble var(--life) infinite linear;
+}
+@keyframes babble {
+  100% {
+    transform: translateY(-300px);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

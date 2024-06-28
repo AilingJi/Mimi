@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Hello Mimi</h1>
+    <div class="container">
+        <div class="platform">
+        </div>
+    </div>
+    <script>
+        const platform = document.getElementsByClassName("platform")[0]
+        if (platform) {
+            setInterval(createBall, 1000)
+        }
+
+        function createBall() {
+            const life = 5
+            const left = Math.random() * platform.clientWidth
+            const ball = document.createElement("div")
+            ball.classList.add('ball')
+            ball.style.setProperty('--size', `${50}px`)
+            ball.style.setProperty('--life', `${life}s`)
+            ball.style.left = `${left}px`
+            // ball.style.setProperty('--left', `${left}px`)
+            platform.appendChild(ball)
+            setTimeout(() => {
+                platform.removeChild(ball)
+            }, life * 1000)
+        }
+    </script>
+</body>
+</html>

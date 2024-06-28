@@ -1,0 +1,34 @@
+$color: palevioletred;
+$babble-height: 300px;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    .platform {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 300px;
+        background-color: $color;
+        
+        .ball {
+            position: relative;
+            width: var(--size);
+            height: var(--size);
+            // left: var(--left);
+            border-radius: 50%;
+            background-color: $color;
+
+            animation: babble var(--life) infinite linear;
+        }
+
+        @keyframes babble {
+            100% {
+                transform: translateY(-$babble-height);
+            }
+        }
+    }
+}
