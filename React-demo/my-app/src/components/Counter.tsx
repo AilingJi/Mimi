@@ -3,7 +3,7 @@ export default function Counter () {
     const [count, setCount] = useState(0)
     return (
         <div style={{marginTop: 25}}>
-            <h2>计数器: {count} </h2>
+            <h2>Counter: {count} </h2>
 
             <button 
                 onClick={() => setCount(count+1)}
@@ -13,7 +13,7 @@ export default function Counter () {
                     fontSize: 16,
                     cursor: "pointer"
                 }}
-            >加一</button>
+            >Add one</button>
         </div>
     )
 }
