@@ -1,15 +1,17 @@
-import './App.css'
-import WelcomeCard from './components/WelcomeCard'
-import Counter from './components/Counter'
-import TextInput from './components/TextInput'
-function App() {
-  return (
-    <div style={{ padding: 24, fontFamily: "system-ui, Arial" }}>
-      <WelcomeCard name="Mimi Cat" />
-      <Counter />
-      <TextInput />
-    </div>
-  )
+import { useState } from 'react';
+function Child() {
+  console.log("Child render");
+  return <div>child</div>;
 }
 
-export default App
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <Child />
+    </>
+  );
+}
+export default App;
