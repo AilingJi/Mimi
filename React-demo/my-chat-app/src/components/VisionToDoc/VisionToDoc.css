@@ -1,0 +1,35 @@
+.vision-doc-container {
+  padding: 24px;
+  background: linear-gradient(90deg, #f6d365, #fd6e6a);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.export-btn {
+  margin-top: 16px;
+  padding: 8px 24px;
+  background: #50c9c3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.export-btn:hover {
+  background: #ee0979;
+}
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid #50c9c3;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
